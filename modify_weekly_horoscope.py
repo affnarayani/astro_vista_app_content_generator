@@ -4,11 +4,13 @@ import time
 import google.generativeai as genai
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from .env file if it exists
+load_dotenv(dotenv_path='.env', override=True)
 
-# Configure the Gemini API with the key from .env
+# Configure the Gemini API with the key from environment variables
 api_key = os.getenv("GEMINI_API_KEY")
+if not api_key:
+    raise ValueError("GEMINI_API_KEY environment variable is not set. Please set it in GitHub Secrets or .env file.")
 genai.configure(api_key=api_key)
 
 # Initialize the Gemini model with gemini-2.0-flash
@@ -50,8 +52,8 @@ def rewrite_text(original_text, section_name, sign):
                 print(f"  Maximum retries reached for {sign} - {section_name}. Skipping.")
                 return original_text
             
-            print(f"  Waiting 60 seconds before retry {retry_count}/{max_retries}...")
-            time.sleep(60)
+            print(f"  Waiting 20 seconds before retry {retry_count}/{max_retries}...")
+            time.sleep(20)
             print(f"  Retrying API call for {sign} - {section_name}...")
 
 def main():

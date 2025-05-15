@@ -53,6 +53,8 @@ jobs:
       - name: Run modification script
         if: steps.git-check.outputs.changes == 'true'
         run: python modify_yesterday_horoscope.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Commit and push MODIFIED JSON if changed
         if: steps.git-check.outputs.changes == 'true'
