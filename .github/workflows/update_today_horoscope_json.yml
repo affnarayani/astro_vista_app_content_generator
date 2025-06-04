@@ -2,8 +2,8 @@ name: Update Today Horoscope
 
 on:
   schedule:
-    - cron: '0 0 * * *'
-    - cron: '0 12 * * *'
+    - cron: '30 22 * * *'  # 4:00 AM IST daily
+    - cron: '30 4 * * *'   # 10:00 AM IST daily
   workflow_dispatch:
 
 permissions:

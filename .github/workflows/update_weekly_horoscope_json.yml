@@ -2,8 +2,8 @@ name: Update Weekly Horoscope
 
 on:
   schedule:
-    - cron: '30 1 * * 0,1'
-    - cron: '30 13 * * 0,1'
+    - cron: '0 0 * * 0,1'  # 5:30 AM IST every Sunday and Monday
+    - cron: '0 6 * * 0,1'  # 11:30 AM IST every Sunday and Monday
   workflow_dispatch:
 
 permissions:

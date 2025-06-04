@@ -2,8 +2,8 @@ name: Update Yearly Horoscope
 
 on:
   schedule:
-    - cron: '30 2 1,2,3 1 *'
-    - cron: '30 14 1,2,3 1 *'
+    - cron: '0 1 1,2,3 1 *'   # 6:30 AM IST every 1,2,3 of January month
+    - cron: '0 7 1,2,3 1 *'   # 12:30 PM IST every 1,2,3 of January month
   workflow_dispatch:
 
 permissions:
