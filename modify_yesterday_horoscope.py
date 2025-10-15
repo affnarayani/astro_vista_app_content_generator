@@ -13,8 +13,8 @@ if not api_key:
     raise ValueError("GEMINI_API_KEY environment variable is not set. Please set it in GitHub Secrets or .env file.")
 genai.configure(api_key=api_key)
 
-# Initialize the Gemini model with gemini-2.0-flash
-model = genai.GenerativeModel('gemini-2.0-flash')
+# Initialize the Gemini model with gemini-2.5-flash
+model = genai.GenerativeModel('gemini-2.5-flash')
 
 def rewrite_text(original_text, section_name, sign):
     """
